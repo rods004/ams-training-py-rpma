@@ -25,7 +25,7 @@ class MainHandler(webapp2.RequestHandler):
 		'element_list' : ['Read python.', 'Finish training.']
 	}
 	def get(self):
-		path = os.path.join(os.path.dirname(__file__), '../templates/main_template.html')
+		path = os.path.join(os.path.dirname(__file__), 'templates/main_template.html')
 		self.response.out.write(template.render(path, self.template_object))
 
 class NewHandler(MainHandler):
@@ -52,6 +52,7 @@ class BlueHandler(MainHandler):
 		super(BlueHandler, self).get()
 
 app = webapp2.WSGIApplication([
+	('/', MainHandler),
 	('/main/', MainHandler),
 	('/main/new', NewHandler),
 	('/main/old', OldHandler),
