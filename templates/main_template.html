@@ -1,0 +1,24 @@
+<html>
+	<body>
+		{% if title %}
+			<h1>{{ title }}</h1></br>
+		{% endif %}
+		{% if username %}
+			<h2>Hello {{ username }}</h2>
+		{% else %}
+			<h2>Hello anonymous</h2>
+		{%endif %}
+		<a href="{{action_url}}"/>{{action}}</a></br>
+		{% if image_path %}
+			<img src="{{ image_path }}" width="100px" /></br>
+		{% endif %}
+		{% if element_list %}
+			<h3>To-do list:</h3>
+			<ul>
+				{% for element in element_list %}
+					<li>{{ element|escape }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</body>
+</html>
